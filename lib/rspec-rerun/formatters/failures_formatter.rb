@@ -20,7 +20,7 @@ module RSpec
   module Rerun
     module Formatters
       class FailuresFormatter < RSpec::Core::Formatters::BaseFormatter
-        FILENAME = 'rspec.failures'
+        FILENAME = ENV['RSPEC_FAILURE_FILENAME'] || 'rspec.failures'
 
         def dump_failures
           return if failed_examples.empty?
